@@ -4,6 +4,11 @@ export interface Article {
   content: string[];
 }
 
+export interface ArticleInfo {
+  upvotes: number;
+  comments?: string[];
+}
+
 const articles: Article[] = [
   {
     name: "learn-react",
