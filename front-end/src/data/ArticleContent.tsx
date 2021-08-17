@@ -1,3 +1,5 @@
+import { Comment } from "../components/CommentsList";
+
 export interface Article {
   name: string;
   title: string;
@@ -6,7 +8,7 @@ export interface Article {
 
 export interface ArticleInfo {
   upvotes: number;
-  comments?: string[];
+  comments?: Comment[];
 }
 
 const articles: Article[] = [
