@@ -1,6 +1,7 @@
 import { match } from "react-router-dom";
 import ArticleList from "../components/ArticlesList";
 import articles, { Article } from "../data/ArticleContent";
+import PageNotFound from "./PageNotFound";
 
 interface Params {
   name: string;
@@ -14,7 +15,7 @@ const ArticlePage = ({ match }: { match: match<Params> }): JSX.Element => {
   );
 
   if (!article) {
-    return <h1>No article found!</h1>;
+    return <PageNotFound />;
   }
 
   const otherArticles = articles.filter((article) => article.name !== name);
