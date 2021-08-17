@@ -1,6 +1,10 @@
 import { match } from "react-router-dom";
 
-const Article = ({ match }: { match: match<any> }): JSX.Element => {
+interface Params {
+  name: string;
+}
+
+const Article = ({ match }: { match: match<Params> }): JSX.Element => {
   const name = match.params.name;
 
   return (
