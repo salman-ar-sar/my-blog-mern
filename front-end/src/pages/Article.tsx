@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { match } from "react-router-dom";
 import ArticleList from "../components/ArticlesList";
+import CommentsList from "../components/CommentsList";
+import { UpvoteSection } from "../components/UpvoteSection";
 import articles, { Article, ArticleInfo } from "../data/ArticleContent";
 import PageNotFound from "./PageNotFound";
 
@@ -40,10 +42,16 @@ const ArticlePage = ({ match }: { match: match<Params> }): JSX.Element => {
   return (
     <>
       <h1>{article?.title}</h1>
-      <p>This post has been upvoted {articleInfo.upvotes} times</p>
+      <UpvoteSection
+        articleName={name}
+        upvotes={articleInfo.upvotes}
+        setArticleInfo={setArticleInfo}
+      />
       {article?.content.map((para, key) => (
         <p key={key}>{para}</p>
       ))}
+
+      {articleInfo.comments && <CommentsList comments={articleInfo.comments} />}
 
       <h2>Other Articles:</h2>
       <ArticleList articles={otherArticles} />
