@@ -1,4 +1,5 @@
 import { match } from "react-router-dom";
+import ArticleList from "../components/ArticlesList";
 import articles, { Article } from "../data/ArticleContent";
 
 interface Params {
@@ -16,12 +17,17 @@ const ArticlePage = ({ match }: { match: match<Params> }): JSX.Element => {
     return <h1>No article found!</h1>;
   }
 
+  const otherArticles = articles.filter((article) => article.name !== name);
+
   return (
     <>
       <h1>{article?.title}</h1>
       {article?.content.map((para, key) => (
         <p key={key}>{para}</p>
       ))}
+
+      <h2>Other Articles:</h2>
+      <ArticleList articles={otherArticles} />
     </>
   );
 };
