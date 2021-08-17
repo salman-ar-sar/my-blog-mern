@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Article from "./pages/Article";
-import ArticleList from "./pages/ArticleList";
+import ArticleListPage from "./pages/ArticleListPage";
 import NavBar from "./components/NavBar";
 
 function App(): JSX.Element {
@@ -15,7 +15,7 @@ function App(): JSX.Element {
           <Route path="/" component={HomePage} exact />
           <Route path="/about" component={About} exact />
           <Route path="/article/:name" component={Article} exact />
-          <Route path="/articles-list" component={ArticleList} exact />
+          <Route path="/articles-list" component={ArticleListPage} exact />
         </div>
       </div>
     </Router>
