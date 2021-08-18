@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { match } from "react-router-dom";
+import AddCommentForm from "../components/AddCommentForm";
 import ArticleList from "../components/ArticlesList";
 import CommentsList from "../components/CommentsList";
 import { UpvoteSection } from "../components/UpvoteSection";
@@ -52,6 +53,8 @@ const ArticlePage = ({ match }: { match: match<Params> }): JSX.Element => {
       ))}
 
       {articleInfo.comments && <CommentsList comments={articleInfo.comments} />}
+
+      <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
 
       <h2>Other Articles:</h2>
       <ArticleList articles={otherArticles} />
